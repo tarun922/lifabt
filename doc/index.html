@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>lifabt – Lucide icons for Android</title>
+<style>
+:root{--bg:#f6f8f9;--panel:#fff;--ink:#17252b;--mute:#5b6c74;--line:#d9e1e5;--accent:#0b7a75;--accent-ink:#fff;--code:#10201f;--code-ink:#d7efe9;--warn:#fff4e0;--warn-line:#e3a53b;--ok:#e6f5ee;--ok-line:#2f9e6b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1517;--panel:#151f22;--ink:#e3edef;--mute:#92a5ab;--line:#26363b;--accent:#4fd1c5;--accent-ink:#06201d;--code:#0a1112;--code-ink:#cfe9e4;--warn:#2b2312;--warn-line:#b98a2e;--ok:#12261d;--ok-line:#2f9e6b}}
+:root[data-theme="dark"]{--bg:#0e1517;--panel:#151f22;--ink:#e3edef;--mute:#92a5ab;--line:#26363b;--accent:#4fd1c5;--accent-ink:#06201d;--code:#0a1112;--code-ink:#cfe9e4;--warn:#2b2312;--warn-line:#b98a2e;--ok:#12261d;--ok-line:#2f9e6b}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:1rem}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif}
+.wrap{display:grid;grid-template-columns:260px minmax(0,1fr);min-height:100vh}
+nav{position:sticky;top:0;height:100vh;overflow:auto;padding:1.5rem 1.2rem;border-right:1px solid var(--line);background:var(--panel)}
+nav h1{font-size:1.25rem;margin:0 0 .2rem}nav p{margin:0 0 1.2rem;color:var(--mute);font-size:.85rem}
+nav a{display:block;padding:.28rem .6rem;margin:.05rem 0;color:var(--ink);text-decoration:none;border-radius:6px;font-size:.92rem}
+nav a:hover,nav a:focus-visible{background:var(--bg);outline:2px solid var(--accent);outline-offset:-2px}
+nav .grp{margin:1rem 0 .2rem;font-size:.8rem;color:var(--mute);font-weight:600}
+main{padding:2.5rem clamp(1rem,4vw,3.5rem) 4rem;max-width:56rem}
+h2{font-size:1.6rem;margin:3rem 0 .6rem;padding-top:1rem;border-top:1px solid var(--line)}
+h2:first-of-type{border-top:0;margin-top:0}
+h3{font-size:1.1rem;margin:1.8rem 0 .3rem}
+p,li{max-width:68ch}code{font:.9em Consolas,"Cascadia Mono",monospace;background:var(--panel);border:1px solid var(--line);padding:.05em .35em;border-radius:4px}
+.hero{font-size:2.3rem;line-height:1.15;margin:0 0 .6rem}.lead{font-size:1.1rem;color:var(--mute)}
+.pre{position:relative;margin:.8rem 0 1.2rem}
+pre{margin:0;background:var(--code);color:var(--code-ink);padding:1rem 1.1rem;border-radius:8px;overflow-x:auto;font:.88rem/1.55 Consolas,"Cascadia Mono",monospace}
+pre .f{display:block;color:#7fb5ad;margin-bottom:.4rem;font-size:.78rem}
+.copy{position:absolute;top:.5rem;right:.5rem;background:var(--accent);color:var(--accent-ink);border:0;border-radius:5px;padding:.2rem .6rem;font-size:.78rem;cursor:pointer}
+.copy:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.note,.ok{padding:.8rem 1rem;border-radius:8px;margin:1rem 0;border-left:4px solid var(--warn-line);background:var(--warn)}
+.ok{border-color:var(--ok-line);background:var(--ok)}.note p,.ok p{margin:0}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.93rem;display:block;overflow-x:auto}
+th,td{text-align:left;padding:.5rem .7rem;border-bottom:1px solid var(--line);vertical-align:top}th{background:var(--panel)}
+.tabs{display:flex;gap:.3rem;margin-top:.8rem}.tabs button{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-bottom:0;border-radius:8px 8px 0 0;padding:.35rem .9rem;cursor:pointer;font:inherit;font-size:.88rem}
+.tabs button[aria-selected="true"]{background:var(--code);color:var(--code-ink)}
+.tabs+.pre{margin-top:0}.tabs+.pre pre{border-top-left-radius:0}
+.pane[hidden]{display:none}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:calc(4rem + env(safe-area-inset-top,0px));-webkit-text-size-adjust:100%}
+code{overflow-wrap:anywhere}
+.bar,.scrim{display:none}
+.tabs{overflow-x:auto;white-space:nowrap}
+details.q{border-bottom:1px solid var(--line);padding:.6rem 0}details.q summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:center}details.q p{margin:.2rem 0 .6rem}
+@media (max-width:820px){
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--panel);z-index:25}
+.wrap{display:block}
+.bar{display:flex;align-items:center;gap:.8rem;position:sticky;top:env(safe-area-inset-top,0px);z-index:20;height:3.4rem;padding:0 1rem;background:var(--panel);border-bottom:1px solid var(--line);font-weight:600}
+.bar button{min-height:44px;min-width:44px;background:var(--accent);color:var(--accent-ink);border:0;border-radius:8px;padding:0 .9rem;font:inherit;font-size:.9rem;cursor:pointer}
+nav{position:fixed;top:0;left:0;bottom:0;width:min(84vw,310px);height:auto;z-index:30;padding-top:calc(1.5rem + env(safe-area-inset-top,0px));padding-bottom:calc(1.5rem + env(safe-area-inset-bottom,0px));border-right:1px solid var(--line);transform:translateX(-102%);transition:transform .2s}
+nav.open{transform:none}
+nav a{padding:.65rem .8rem;font-size:1rem}
+.scrim.show{display:block;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:28}
+main{padding:1.5rem 1rem 3rem}
+.hero{font-size:1.75rem}.lead{font-size:1rem}h2{font-size:1.35rem;margin-top:2.2rem}
+pre{font-size:.8rem;padding:.9rem .8rem;padding-top:2.6rem}
+.copy{min-height:36px;min-width:64px;font-size:.82rem}
+th,td{padding:.5rem .55rem;font-size:.88rem}
+.tabs button{padding:.55rem .9rem;min-height:44px}
+}
+@media (prefers-reduced-motion:reduce){nav{transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="bar"><button id="mb" type="button" aria-expanded="false" aria-controls="nv">☰ Menu</button><span>lifabt docs</span></header>
+<div class="scrim" id="sc"></div>
+<div class="wrap">
+<nav id="nv" aria-label="Documentation">
+<h1>lifabt</h1><p>Lucide icons for Android · v0.1.0</p>
+<div class="grp">Start</div>
+<a href="#overview">Overview</a><a href="#requirements">Requirements</a><a href="#install">1. Install the plugin</a><a href="#setup">2. Set up your app</a><a href="#build">3. First build</a><a href="#use">4. Use the icons</a>
+<div class="grp">Real projects</div>
+<a href="#recipes">Recipes</a><a href="#config">Configuration</a><a href="#styling">Colour &amp; size</a><a href="#git">Git, CI &amp; offline</a><a href="#workflow">Daily workflow</a><a href="#multi">Multi-module apps</a><a href="#ci">CI &amp; sharing</a>
+<div class="grp">Reference</div>
+<a href="#how">How it works</a><a href="#test">Test without a phone</a><a href="#trouble">Troubleshooting</a><a href="#faq">FAQ</a><a href="#limits">Limits &amp; license</a>
+</nav>
+<main>
+<h1 class="hero">Lucide icons in your Android app, from one list.</h1>
+<p class="lead">You write the icon names in <code>build.gradle</code>. lifabt downloads the SVGs once, converts them to Android VectorDrawables, and adds them to your app as <code>R.drawable.lucide_*</code>.</p>
+
+<div class="ok"><p><b>In a hurry?</b> 1) <code>gradlew.bat publishToMavenLocal</code> in the plugin folder. 2) Add <code>mavenLocal()</code> to <code>pluginManagement</code>. 3) Add the plugin and an <code>icons</code> list to <code>app/build.gradle</code>. 4) Build, then use <code>@drawable/lucide_camera</code>. Details below.</p></div>
+
+<h2 id="overview">Overview</h2>
+<p>Normally you would import each icon by hand through Android Studio’s Vector Asset tool. lifabt does that for a whole list at build time, so the icon list lives in code and is easy to review.</p>
+<ul>
+<li><b>Input:</b> icon names from <a href="https://lucide.dev/icons" style="color:var(--accent)">lucide.dev/icons</a>, such as <code>camera</code> or <code>arrow-right</code>.</li>
+<li><b>Output:</b> XML drawables like <code>lucide_camera.xml</code>, generated in <code>build/generated/lucide/res/drawable</code>.</li>
+<li><b>Works with:</b> XML layouts, Java, Kotlin and Jetpack Compose.</li>
+</ul>
+
+<h2 id="requirements">Requirements</h2>
+<table><tr><th>You need</th><th>Notes</th></tr>
+<tr><td>JDK 11 or newer</td><td>Needed once, to build the plugin.</td></tr>
+<tr><td>Gradle</td><td>Use the <code>gradlew.bat</code> that comes with the plugin project. On Windows cmd write <code>gradlew.bat</code>, not <code>./gradlew</code>.</td></tr>
+<tr><td>Android Gradle Plugin</td><td>Your app must use <code>com.android.application</code> or <code>com.android.library</code>.</td></tr>
+<tr><td>Internet, first build only</td><td>Icons come from the <code>lucide-static</code> npm package through jsDelivr. After that they are cached.</td></tr>
+</table>
+<p>You do not need adb or a phone to generate the icons. You only need a device or emulator when you run the finished app.</p>
+
+<h2 id="install">1. Install the plugin</h2>
+<p>The plugin is not on the Gradle Plugin Portal yet, so publish it to your local Maven repository. Do this once per computer, and again after you change the plugin’s code.</p>
+<div class="pre"><pre><span class="f">cmd, inside the lifabt folder</span>gradlew.bat publishToMavenLocal</pre></div>
+<p>Check that the jar contains <code>io/github/tarun922/lifabt/LifabtPlugin.class</code>:</p>
+<div class="pre"><pre>jar tf build\libs\lifabt-0.1.0.jar</pre></div>
+<div class="note"><p>If Gradle says <em>“implementation class … was not found in the jar”</em>, the <code>package</code> line in the Java files does not match the folder. All four files must start with <code>package io.github.tarun922.lifabt;</code>.</p></div>
+
+<h2 id="setup">2. Set up your app</h2>
+<h3>2a. Tell Gradle to look in your local repo</h3>
+<p>Put <code>mavenLocal()</code> first in the project’s <code>settings.gradle</code>:</p>
+<div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="s1">Groovy</button><button role="tab" aria-selected="false" data-t="s2">Kotlin DSL</button></div>
+<div class="pre pane" data-p="s1"><pre><span class="f">settings.gradle</span>pluginManagement {
+    repositories {
+        mavenLocal()
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}</pre></div>
+<div class="pre pane" data-p="s2" hidden><pre><span class="f">settings.gradle.kts</span>pluginManagement {
+    repositories {
+        mavenLocal()
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}</pre></div>
+<h3>2b. Apply the plugin in the app module</h3>
+<p>Edit the module’s own file (usually <code>app/build.gradle</code>), not the root one.</p>
+<div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="a1">Groovy</button><button role="tab" aria-selected="false" data-t="a2">Kotlin DSL</button></div>
+<div class="pre pane" data-p="a1"><pre><span class="f">app/build.gradle</span>plugins {
+    id 'com.android.application'
+    id 'io.github.tarun922.lifabt' version '0.1.0'
+}
+
+lifabt {
+    icons = ['camera', 'arrow-right', 'circle-user', 'settings']
+    version = '0.460.0'   // pin the icon set (recommended)
+}</pre></div>
+<div class="pre pane" data-p="a2" hidden><pre><span class="f">app/build.gradle.kts</span>plugins {
+    id("com.android.application")
+    id("io.github.tarun922.lifabt") version "0.1.0"
+}
+
+lifabt {
+    icons.set(listOf("camera", "arrow-right", "circle-user", "settings"))
+    version.set("0.460.0")   // pin the icon set (recommended)
+}</pre></div>
+<div class="note"><p>If your project uses a version catalog (<code>libs.versions.toml</code>), you can still write the plugin id and version directly as above. It does not have to go in the catalog.</p></div>
+
+<h2 id="build">3. First build</h2>
+<p>Press <b>Sync Now</b> in Android Studio and build, or run:</p>
+<div class="pre"><pre>gradlew.bat assembleDebug
+gradlew.bat generateLucideIcons   # icons only, no app build</pre></div>
+<p>You should see <code>lifabt: downloading camera</code> for each icon, then <code>lifabt: generated 4 icon(s)</code>. Two folders appear:</p>
+<table><tr><th>Folder</th><th>What is in it</th></tr>
+<tr><td><code>app/lucide-icons/&lt;version&gt;/</code></td><td>The downloaded <code>.svg</code> files. This is the cache. Commit it.</td></tr>
+<tr><td><code>app/build/generated/lucide/res/drawable/</code></td><td>The generated XML drawables. Never edit or commit these.</td></tr></table>
+<div class="ok"><p>The generated XML is a normal <code>&lt;vector&gt;</code> with a 24×24 viewport, <code>strokeWidth="2"</code>, round caps and joins, and a black stroke, the same style as Lucide’s SVGs.</p></div>
+
+<h2 id="use">4. Use the icons</h2>
+<p>The drawable name is the prefix <code>lucide_</code> plus the icon name with dashes turned into underscores: <code>arrow-right</code> becomes <code>lucide_arrow_right</code>.</p>
+<div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="u1">XML</button><button role="tab" aria-selected="false" data-t="u2">Compose</button><button role="tab" aria-selected="false" data-t="u3">Kotlin</button><button role="tab" aria-selected="false" data-t="u4">Java</button></div>
+<div class="pre pane" data-p="u1"><pre>&lt;ImageView
+    android:layout_width="24dp"
+    android:layout_height="24dp"
+    android:src="@drawable/lucide_camera"
+    android:contentDescription="@string/take_photo"
+    app:tint="?attr/colorOnSurface" /&gt;
+
+&lt;!-- Material button with an icon --&gt;
+&lt;com.google.android.material.button.MaterialButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Next"
+    app:icon="@drawable/lucide_arrow_right" /&gt;</pre></div>
+<div class="pre pane" data-p="u2" hidden><pre>Icon(
+    painter = painterResource(R.drawable.lucide_camera),
+    contentDescription = "Take photo",
+    modifier = Modifier.size(24.dp)
+)
+
+IconButton(onClick = { /* … */ }) {
+    Icon(painterResource(R.drawable.lucide_settings), contentDescription = "Settings")
+}</pre></div>
+<div class="pre pane" data-p="u3" hidden><pre>binding.icon.setImageResource(R.drawable.lucide_camera)</pre></div>
+<div class="pre pane" data-p="u4" hidden><pre>imageView.setImageResource(R.drawable.lucide_camera);</pre></div>
+<p>Always give icons a <code>contentDescription</code> when they act as buttons, so screen readers can announce them. Use <code>null</code> for purely decorative ones.</p>
+
+<h2 id="recipes">Recipes</h2>
+<h3>Menus and bottom navigation</h3>
+<p>Menu items take the icon directly. <code>BottomNavigationView</code> and <code>Toolbar</code> tint it for you.</p>
+<div class="pre"><pre><span class="f">res/menu/bottom_nav.xml</span>&lt;menu xmlns:android="http://schemas.android.com/apk/res/android"&gt;
+    &lt;item android:id="@+id/nav_home" android:title="Home"
+        android:icon="@drawable/lucide_house" /&gt;
+    &lt;item android:id="@+id/nav_settings" android:title="Settings"
+        android:icon="@drawable/lucide_settings" /&gt;
+&lt;/menu&gt;</pre></div>
+<div class="note"><p>Lucide sometimes renames icons (for example <code>home</code> became <code>house</code>). If a name fails with “not found”, search lucide.dev for the current one, or pin an older <code>version</code>.</p></div>
+<h3>Icon inside a TextView</h3>
+<div class="pre"><pre>&lt;TextView
+    android:text="Camera"
+    android:drawableStart="@drawable/lucide_camera"
+    android:drawablePadding="8dp"
+    android:drawableTint="?attr/colorOnSurface" /&gt;  &lt;!-- API 23+ --&gt;</pre></div>
+<h3>One reusable Compose wrapper</h3>
+<p>Keeps size and colour consistent across the app.</p>
+<div class="pre"><pre>@Composable
+fun LucideIcon(
+    @DrawableRes id: Int,
+    contentDescription: String?,
+    modifier: Modifier = Modifier,
+    tint: Color = LocalContentColor.current
+) {
+    Icon(painterResource(id), contentDescription, modifier.size(24.dp), tint)
+}
+
+// usage
+LucideIcon(R.drawable.lucide_camera, "Take photo")</pre></div>
+<h3>Choosing an icon by name at runtime</h3>
+<p>Only do this if the icon name comes from data. Prefer direct <code>R.drawable</code> references.</p>
+<div class="pre"><pre>val id = resources.getIdentifier("lucide_$name", "drawable", packageName)</pre></div>
+<p>Release builds with resource shrinking remove drawables that no code references directly. Protect the icons by adding this file:</p>
+<div class="pre"><pre><span class="f">app/src/main/res/raw/keep.xml</span>&lt;resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@drawable/lucide_*" /&gt;</pre></div>
+<h3>Moving from Vector Asset imports</h3>
+<p>Delete the hand-imported Lucide XML files, add the names to <code>icons</code>, and use <code>prefix = 'ic_'</code> if your existing code already uses <code>ic_</code> names. Anything with the same file name in <code>src/main/res</code> will clash with the generated one, so remove the old copies.</p>
+
+<h2 id="config">Configuration</h2>
+<table><tr><th>Option</th><th>Default</th><th>What it does</th></tr>
+<tr><td><code>icons</code></td><td>none (required)</td><td>List of Lucide icon names, exactly as on lucide.dev. Lowercase letters, digits and dashes only.</td></tr>
+<tr><td><code>version</code></td><td><code>"latest"</code></td><td>The <code>lucide-static</code> version on npm. Pin it so every machine gets identical icons.</td></tr>
+<tr><td><code>prefix</code></td><td><code>"lucide_"</code></td><td>Start of every drawable name. Must match <code>[a-z][a-z0-9_]*</code>.</td></tr></table>
+<p>Example with a custom prefix: <code>prefix = 'ic_'</code> makes <code>R.drawable.ic_camera</code>.</p>
+
+<h2 id="styling">Colour &amp; size</h2>
+<p>The generated icons have a fixed black stroke and no fill. Colour them with a tint, not by editing the XML.</p>
+<ul>
+<li><b>XML:</b> <code>app:tint="?attr/colorOnSurface"</code> on an <code>ImageView</code>. Using a theme attribute means dark mode works automatically.</li>
+<li><b>Compose:</b> <code>Icon</code> uses the current content colour by default. Pass <code>tint = MaterialTheme.colorScheme.primary</code> to change it.</li>
+<li><b>Size:</b> the icons are 24dp but scale cleanly. Set any <code>layout_width</code> and <code>layout_height</code>, or <code>Modifier.size(…)</code>.</li>
+<li><b>Thicker or thinner lines:</b> not configurable in 0.1.0. All icons use stroke width 2.</li>
+</ul>
+
+<h2 id="git">Git, CI &amp; offline builds</h2>
+<p>Commit the cache folder. Then nobody, including your CI server, needs internet to build.</p>
+<div class="pre"><pre><span class="f">.gitignore</span>build/
+.gradle/
+local.properties
+# do NOT ignore app/lucide-icons/</pre></div>
+<ul>
+<li>With <code>version = 'latest'</code>, the committed cache is what keeps builds stable. Without a cache, a newer Lucide release could change an icon between two builds.</li>
+<li>Pinning <code>version</code> and committing <code>lucide-icons/</code> together is the safest setup.</li>
+<li>Do not commit <code>build/generated/lucide/</code>. It is recreated on every build.</li>
+</ul>
+
+<h2 id="workflow">Daily workflow</h2>
+<p><b>Add an icon:</b> find its name on lucide.dev, add it to <code>icons</code>, sync. Only the new SVG is downloaded.</p>
+<p><b>Remove an icon:</b> delete it from the list. The generated folder is cleared on each run, so the old drawable disappears. Any code that still uses it fails to compile, which tells you where to clean up.</p>
+<p><b>Update the icon set:</b> change <code>version</code> to a newer one. It gets its own cache folder (<code>lucide-icons/&lt;version&gt;/</code>), so you can compare the two before deleting the old one.</p>
+<p><b>Rename the prefix:</b> change <code>prefix</code>, then update every <code>R.drawable</code> reference.</p>
+<p><b>Regenerate by hand:</b> <code>gradlew.bat generateLucideIcons</code>.</p>
+
+<h2 id="multi">Multi-module apps</h2>
+<p>Apply the plugin in the module that owns the icons. A shared <code>:ui</code> or <code>:core</code> library module works well, using <code>com.android.library</code>. Other modules then reach the drawables through that module’s <code>R</code> class, or through the app’s merged <code>R</code> if the app depends on it. With non-transitive R classes (the default in new projects), import it like <code>com.yourapp.ui.R</code>.</p>
+
+<h2 id="ci">CI &amp; sharing the plugin</h2>
+<p>Because the plugin lives in your local Maven cache, a fresh machine does not have it. You have three options.</p>
+<table><tr><th>Option</th><th>Good for</th></tr>
+<tr><td><b>Publish on each machine</b></td><td>Solo work. Run <code>gradlew.bat publishToMavenLocal</code> once.</td></tr>
+<tr><td><b>Build it in CI first</b></td><td>Teams with a CI server. Example below.</td></tr>
+<tr><td><b>Composite build</b></td><td>Keeping the plugin folder next to the app. In <code>pluginManagement</code> write <code>includeBuild("../lifabt")</code>, then apply <code>id 'io.github.tarun922.lifabt'</code> without a version. This is a standard Gradle feature, but I have not tested it with this plugin.</td></tr></table>
+<div class="pre"><pre><span class="f">.github/workflows/build.yml</span>name: build
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: YOUR_GITHUB_NAME/lifabt
+          path: lifabt
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 17 }
+      - run: chmod +x lifabt/gradlew &amp;&amp; cd lifabt &amp;&amp; ./gradlew publishToMavenLocal
+      - run: chmod +x gradlew &amp;&amp; ./gradlew assembleDebug</pre></div>
+<p>With <code>lucide-icons/</code> committed, this build needs no icon downloads. For wider use, publish the plugin to the Gradle Plugin Portal or a private Maven repository and remove <code>mavenLocal()</code>.</p>
+
+<h2 id="how">How it works</h2>
+<ol>
+<li>The plugin registers a task called <code>generateLucideIcons</code> that runs before <code>preBuild</code>.</li>
+<li>For each name, it looks for <code>lucide-icons/&lt;version&gt;/&lt;name&gt;.svg</code>. If missing, it downloads it from <code>cdn.jsdelivr.net/npm/lucide-static@&lt;version&gt;/icons/&lt;name&gt;.svg</code>.</li>
+<li>It converts the SVG elements (<code>path, line, polyline, polygon, circle, ellipse, rect, g</code>) into VectorDrawable paths.</li>
+<li>It writes <code>build/generated/lucide/res/drawable/&lt;prefix&gt;&lt;name&gt;.xml</code> and adds that <code>res</code> folder to the app’s <code>main</code> source set.</li>
+</ol>
+
+<h2 id="test">Test without a phone</h2>
+<p>The conversion needs no Android SDK. Make a tiny test project containing only the plugin:</p>
+<div class="pre"><pre><span class="f">settings.gradle</span>pluginManagement { repositories { mavenLocal(); gradlePluginPortal() } }
+rootProject.name = 'lifabt-test'
+
+<span class="f" style="margin-top:.8rem">build.gradle</span>plugins { id 'io.github.tarun922.lifabt' version '0.1.0' }
+lifabt { icons = ['camera', 'arrow-right'] }</pre></div>
+<div class="pre"><pre>gradle generateLucideIcons
+dir build\generated\lucide\res\drawable</pre></div>
+<p>Good result: one <code>.xml</code> per icon, each starting with <code>&lt;vector</code>. Then switch the internet off and run <code>gradle generateLucideIcons --rerun</code>. It should succeed from the cache without printing “downloading”. A wrong name such as <code>abcxyz</code> should fail with a clear “not found” message.</p>
+<div class="note"><p>This checks the downloader and converter. The automatic <code>res</code> registration only runs inside a real Android project, so build one real app once to confirm it.</p></div>
+
+<h2 id="trouble">Troubleshooting</h2>
+<table><tr><th>Problem</th><th>Fix</th></tr>
+<tr><td><code>Plugin … was not found</code></td><td>Run <code>gradlew.bat publishToMavenLocal</code> and make sure <code>mavenLocal()</code> is inside <code>pluginManagement.repositories</code>.</td></tr>
+<tr><td><em>implementation class … not found in the jar</em></td><td>Package names in the Java files must equal <code>io.github.tarun922.lifabt</code>. Rebuild with <code>clean publishToMavenLocal</code>. If an old copy is cached, delete <code>%USERPROFILE%\.m2\repository\io\github\tarun922</code> and publish again.</td></tr>
+<tr><td><code>R.drawable.lucide_x</code> is unresolved</td><td>Check the icon is in <code>icons</code> and the build ran. If the log says <em>could not auto-register the res folder</em>, add <code>sourceSets.main.res.srcDir("build/generated/lucide/res")</code> inside <code>android { }</code>.</td></tr>
+<tr><td>Wrong module in Android Studio</td><td>The plugin must be in <code>app/build.gradle</code>, not the root <code>build.gradle</code>.</td></tr>
+<tr><td><code>Download of 'x' failed</code> / no cached copy</td><td>Connect to the internet once, or place <code>x.svg</code> by hand in <code>lucide-icons/&lt;version&gt;/</code>.</td></tr>
+<tr><td><code>Icon 'x' not found</code></td><td>Check the spelling on lucide.dev. Some icons were renamed between versions, so check the version too.</td></tr>
+<tr><td>Icon is black on a dark background</td><td>Add a tint (<a href="#styling" style="color:var(--accent)">Colour &amp; size</a>).</td></tr>
+<tr><td>Deprecation warning about Gradle 10</td><td>Run with <code>--warning-mode all</code> to see whether the plugin or your own scripts cause it. The build still works.</td></tr>
+<tr><td><code>'.' is not recognized</code> on Windows</td><td>In cmd, use <code>gradlew.bat</code>. The <code>./gradlew</code> form works in PowerShell, Git Bash and Linux or macOS terminals.</td></tr></table>
+
+<h2 id="faq">FAQ</h2>
+<details class="q"><summary>Does it make my APK bigger?</summary><p>Only by the icons you list. Each generated XML is roughly 0.5–1.5 KB.</p></details>
+<details class="q"><summary>Which Android versions work?</summary><p>VectorDrawable is built in from API 21. For older versions you need the AndroidX vector support setup in your app. Most new projects use minSdk 21 or higher, so nothing extra is needed.</p></details>
+<details class="q"><summary>Can I fill an icon instead of outlining it?</summary><p>Not in 0.1.0. Lucide icons are stroke-only and the plugin keeps them that way.</p></details>
+<details class="q"><summary>Can I use icons from another library?</summary><p>No. The plugin downloads only from <code>lucide-static</code>.</p></details>
+<details class="q"><summary>Do I need internet on every build?</summary><p>No. Only for an icon that is not yet in <code>lucide-icons/</code>.</p></details>
+<details class="q"><summary>Can I edit a generated XML?</summary><p>You can, but the next build overwrites it, because the folder is cleared on each run. Copy the file into <code>src/main/res/drawable</code> under a different name if you want a custom version.</p></details>
+<details class="q"><summary>Does it work in Flutter, React Native or Qt?</summary><p>No. It targets native Android projects with Gradle.</p></details>
+
+<h2 id="limits">Limits &amp; license</h2>
+<ul>
+<li>Only the SVG elements listed above are converted. This covers all Lucide icons.</li>
+<li>Stroke colour (black) and width (2) are fixed in this version.</li>
+<li>The plugin is published to the local Maven cache only, so every developer or CI machine must run <code>publishToMavenLocal</code> once, or host the plugin in a shared Maven repository.</li>
+<li><b>License:</b> the plugin’s own code is under the license in its <code>LICENSE</code> file (GPL v3 in the current zip). Lucide icons are a separate project under the ISC license. They are downloaded at build time, so check <a href="https://lucide.dev/license" style="color:var(--accent)">lucide.dev/license</a> before you ship.</li>
+</ul>
+</main>
+</div>
+<script>
+document.querySelectorAll('.pre').forEach(function(box){
+  var b=document.createElement('button');b.className='copy';b.type='button';b.textContent='Copy';
+  b.addEventListener('click',function(){
+    var t=box.querySelector('pre').innerText.replace(/^.*\n(?=)/,function(m){return box.querySelector('.f')?'':m});
+    var txt=box.querySelector('pre').cloneNode(true);txt.querySelectorAll('.f').forEach(function(x){x.remove()});
+    var s=txt.textContent;
+    try{navigator.clipboard.writeText(s).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1500)})}catch(e){}
+  });
+  box.appendChild(b);
+});
+(function(){
+  var nv=document.getElementById('nv'),mb=document.getElementById('mb'),sc=document.getElementById('sc');
+  function set(o){nv.classList.toggle('open',o);sc.classList.toggle('show',o);mb.setAttribute('aria-expanded',o)}
+  mb.addEventListener('click',function(){set(!nv.classList.contains('open'))});
+  sc.addEventListener('click',function(){set(false)});
+  nv.addEventListener('click',function(e){if(e.target.tagName==='A')set(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+})();
+document.querySelectorAll('.tabs').forEach(function(tabs){
+  var btns=tabs.querySelectorAll('button');
+  btns.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btns.forEach(function(o){
+        var on=o===btn;o.setAttribute('aria-selected',on);
+        var p=document.querySelector('[data-p="'+o.dataset.t+'"]');if(p)p.hidden=!on;
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>
