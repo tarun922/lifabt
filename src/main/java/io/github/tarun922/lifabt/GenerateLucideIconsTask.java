@@ -1,4 +1,4 @@
-package dev.tarun.lifabt;
+package io.github.tarun922.lifabt;
 
 import org.gradle.api.DefaultTask;
 import org.gradle.api.GradleException;

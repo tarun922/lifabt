@@ -1,4 +1,4 @@
-package dev.tarun.lifabt;
+package io.github.tarun922.lifabt;
 
 import org.codehaus.groovy.runtime.InvokerHelper;
 import org.gradle.api.Plugin;
@@ -31,7 +31,7 @@ public class LifabtPlugin implements Plugin<Project> {
             Object android = project.getExtensions().findByName("android");
             if (android == null) {
                 throw new org.gradle.api.GradleException(
-                        "dev.tarun.lifabt must be applied together with com.android.application or com.android.library");
+                        "io.github.tarun922.lifabt must be applied together with com.android.application or com.android.library");
             }
             try {
                 Object sourceSets = InvokerHelper.getProperty(android, "sourceSets");
